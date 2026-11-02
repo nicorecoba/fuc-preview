@@ -401,10 +401,17 @@ html[data-vista="formal"] .news-card:hover {
   box-shadow: none;
   transform: none;
   color: var(--f-ink);
-  transition: border-color var(--dur-rapida) var(--ease-estandar);
+  transition:
+    border-color var(--dur-rapida) var(--ease-estandar),
+    transform var(--dur-media) var(--ease-estandar),
+    box-shadow var(--dur-media) var(--ease-estandar);
 }
 
-html[data-vista="formal"] .news-card:hover { border-color: var(--f-ink2); }
+html[data-vista="formal"] .news-card:hover {
+  border-color: var(--f-ink2);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+}
 
 html[data-vista="formal"] .news-card__body { gap: 14px; }
 
@@ -627,9 +634,17 @@ html[data-vista="formal"] .access-card:hover {
   box-shadow: none;
   transform: none;
   color: var(--f-ink);
+  transition:
+    border-color var(--dur-rapida) var(--ease-estandar),
+    transform var(--dur-media) var(--ease-estandar),
+    box-shadow var(--dur-media) var(--ease-estandar);
 }
 
-html[data-vista="formal"] .access-card:hover { border-color: var(--f-ink2); }
+html[data-vista="formal"] .access-card:hover {
+  border-color: var(--f-ink2);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+}
 
 html[data-vista="formal"] .access-card__filete,
 html[data-vista="formal"] .access-card__num,
