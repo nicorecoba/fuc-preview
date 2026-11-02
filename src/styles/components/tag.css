@@ -1,0 +1,54 @@
+/* Etiquetas: categoría (pill), estado, fecha y categoría de competencia (chip) */
+.pill {
+  padding: 5px 12px;
+  border: 1px solid var(--color-linea);
+  border-radius: var(--radio-etiqueta);
+  background: var(--color-superficie-2);
+  color: var(--color-texto);
+  font: 500 12px/1 var(--font-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.date-label {
+  font: 500 12px/1 var(--font-mono);
+  letter-spacing: .12em;
+  color: var(--color-texto-sec);
+}
+
+.status {
+  padding: 4px 12px;
+  border-radius: var(--radio-etiqueta);
+  background: var(--color-superficie-2);
+  color: var(--color-texto);
+  font-size: 13px;
+  font-weight: var(--peso-semi);
+}
+
+.status--open {
+  background: color-mix(in srgb, #2E9E5B 22%, var(--color-superficie));
+}
+
+/* Estado "Finalizada" de una prueba: con borde y un punto de color */
+.status--final {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border: 1px solid var(--color-linea);
+}
+
+.status__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radio-circulo);
+  background: var(--color-accion);
+}
+
+.chip {
+  padding: 4px 10px;
+  border: 1px solid var(--color-linea);
+  border-radius: var(--radio-etiqueta);
+  color: var(--color-accion);
+  font: 500 13px/1.2 var(--font-mono);
+}

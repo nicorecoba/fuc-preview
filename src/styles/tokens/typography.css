@@ -1,0 +1,35 @@
+/* FUC · Tipografía */
+:root {
+  /* Home v7 reemplaza las fuentes del design system (Source Serif 4 / Public Sans) por estas */
+  --font-titulo: 'Crimson Pro', Georgia, serif;
+  --font-cuerpo: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Fuente del hero y de los títulos de sección */
+  --font-hero: 'Playfair Display', Georgia, serif;
+  --hero-weight: 700;
+  --hero-tracking: -.01em;
+  --hero-style: normal;
+  --hero-transform: none;
+
+  --peso-regular: 400;
+  --peso-medio: 500;
+  --peso-semi: 600;
+  --peso-bold: 700;
+
+  /* Escala: tamaño / interlínea */
+  --text-display: 56px;   --lh-display: 60px;
+  --text-h1: 40px;        --lh-h1: 44px;
+  --text-h2: 28px;        --lh-h2: 34px;
+  --text-h3: 20px;        --lh-h3: 26px;
+  --text-cuerpo-l: 18px;  --lh-cuerpo-l: 28px;
+  --text-cuerpo: 16px;    --lh-cuerpo: 24px;
+  --text-nota: 14px;      --lh-nota: 20px;
+  --text-etiqueta: 12px;  --tracking-etiqueta: 0.1em;
+
+  /* Tiempos (siempre mono + tabular) */
+  --text-tiempo-xl: 48px;
+  --text-tiempo-l: 28px;
+  --text-tiempo-m: 18px;
+  --numeros-tiempo: tabular-nums;
+}

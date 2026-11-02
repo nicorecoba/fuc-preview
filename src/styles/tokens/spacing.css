@@ -1,0 +1,33 @@
+/* FUC · Espaciado, radios, elevación, movimiento, retícula */
+:root {
+  --esp-1: 4px;
+  --esp-2: 8px;
+  --esp-3: 12px;
+  --esp-4: 16px;
+  --esp-5: 24px;
+  --esp-6: 32px;
+  --esp-7: 48px;
+  --esp-8: 64px;
+
+  --radio-etiqueta: 999px;
+  --radio-control: 10px;
+  --radio-tarjeta: 16px;
+  --radio-foto: 16px;
+  --radio-circulo: 50%;
+
+  --toque-min: 48px;
+  --borde: 1px;
+  --filete: 3px;
+
+  --sombra-1: 0 1px 2px rgba(15, 34, 54, 0.06), 0 4px 12px rgba(15, 34, 54, 0.06);
+  --sombra-2: 0 12px 32px rgba(11, 23, 38, 0.24);
+
+  --dur-rapida: 120ms;
+  --dur-media: 200ms;
+  --ease-estandar: cubic-bezier(0.2, 0, 0, 1);
+
+  --ancho-max: 1200px;
+  --medianil: 24px;
+  --margen-escritorio: 48px;
+  --margen-celular: 16px;
+}

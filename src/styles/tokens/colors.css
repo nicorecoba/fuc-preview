@@ -1,0 +1,120 @@
+/* FUC · Color — base + semánticos. Modo claro por defecto; modo noche con [data-theme="noche"] */
+:root {
+  /* Base: marino */
+  --marino-950: #0B1726;
+  --marino-900: #0F2236;
+  --marino-850: #13243A;
+  --marino-800: #1A2D44;
+  --marino-700: #24384F;
+  /* Base: azul acción */
+  --azul-700: #083A69;
+  --azul-logo: #0268B3;
+  --azul-600: #0B4A85;
+  --azul-300: #7CB8EE;
+  --azul-200: #A6CFF4;
+  /* Base: marca (solo gráfico) */
+  --celeste-sello: #4C9BD3;
+  --amarillo-sello: #E8B320;
+  /* Base: neutros */
+  --blanco: #FFFFFF;
+  --gris-50: #F5F7FA;
+  --gris-100: #EEF2F6;
+  --gris-150: #ECEFF3;
+  --gris-200: #D6DEE7;
+  --gris-400: #7D8EA0;
+  --gris-500: #6B7A89;
+  --gris-600: #4B5D70;
+  --gris-700: #33465A;
+  --niebla-100: #ECF2F8;
+  --niebla-300: #9FB1C4;
+  --niebla-500: #5F7590;
+  /* Base: podio */
+  --medalla-oro: #C4A04E;
+  --medalla-plata: #8A96A3;
+  --medalla-bronce: #A7663A;
+
+  /* Semánticos — claro */
+  --color-fondo: var(--gris-50);
+  --color-superficie: var(--blanco);
+  --color-superficie-2: var(--gris-100);
+  --color-texto: var(--marino-900);
+  --color-texto-cuerpo: var(--gris-700);
+  --color-texto-sec: var(--gris-600);
+  --color-linea: var(--gris-200);
+  --color-linea-suave: var(--gris-100);
+  --color-borde-campo: var(--gris-400);
+  --color-accion: var(--azul-600);
+  --color-accion-hover: var(--azul-700);
+  --color-accion-texto: var(--blanco);
+  --color-enlace: var(--azul-600);
+  --color-foco: var(--azul-600);
+  --color-deshabilitado-bg: var(--gris-150);
+  --color-deshabilitado-fg: var(--gris-500);
+  --color-banda-foto: var(--marino-900);
+  --color-banda-foto-texto: var(--niebla-100);
+  --color-overlay: rgba(11, 23, 38, 0.6);
+  --color-filete-1: var(--azul-600);
+  --color-filete-2: var(--celeste-sello);
+  --color-hero-bg: #E4EEF8;
+
+  --color-exito: #1B6B3F;
+  --color-exito-bg: #E2F2E8;
+  --color-peligro: #A12B1F;
+  --color-peligro-bg: #FBE6E3;
+  --color-peligro-texto: #5E1A12;
+  --color-info: #1E3A5C;
+  --color-info-bg: #E3EAF3;
+
+  /* Estados de competencia */
+  --estado-abiertas-bg: #E2F2E8;
+  --estado-abiertas-fg: #1B6B3F;
+  --estado-cerradas-bg: #ECEFF3;
+  --estado-cerradas-fg: #4B5563;
+  --estado-curso-bg: #FBE6E3;
+  --estado-curso-fg: #A12B1F;
+  --estado-finalizada-bg: #E3EAF3;
+  --estado-finalizada-fg: #1E3A5C;
+}
+
+/* Modo noche: tokens del design system + ajustes de Home v7 (grises neutros en lugar de marino). */
+[data-theme="noche"] {
+  --color-fondo: #0E0F11;
+  --color-superficie: #16181B;
+  --color-superficie-2: #1C1F23;
+  --color-texto: var(--niebla-100);
+  --color-texto-cuerpo: #C4C9CF;
+  --color-texto-sec: var(--niebla-300);
+  --color-linea: #2B2F34;
+  --color-linea-suave: #1F2226;
+  --color-borde-campo: var(--niebla-500);
+  --color-accion: #93B2D1;
+  --color-accion-hover: #AFC6DD;
+  --color-accion-texto: var(--marino-950);
+  --color-enlace: #93B2D1;
+  --color-foco: #93B2D1;
+  --color-deshabilitado-bg: #222F3E;
+  --color-deshabilitado-fg: #7F91A4;
+  --color-banda-foto: #16181B;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+  --color-filete-1: #93B2D1;
+  --color-filete-2: var(--celeste-sello);
+  --color-hero-bg: #121417;
+  --celeste-sello: #6F8FAE;
+
+  --color-exito: #8FDCAF;
+  --color-exito-bg: #143A27;
+  --color-peligro: #FFAA9E;
+  --color-peligro-bg: #4A1D1A;
+  --color-peligro-texto: #FFD3CC;
+  --color-info: #A9C8EC;
+  --color-info-bg: #1D2530;
+
+  --estado-abiertas-bg: #143A27;
+  --estado-abiertas-fg: #8FDCAF;
+  --estado-cerradas-bg: #222F3E;
+  --estado-cerradas-fg: #B5C0CC;
+  --estado-curso-bg: #4A1D1A;
+  --estado-curso-fg: #FFAA9E;
+  --estado-finalizada-bg: #1D2530;
+  --estado-finalizada-fg: #A9C8EC;
+}

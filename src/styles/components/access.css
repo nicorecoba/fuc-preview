@@ -1,0 +1,109 @@
+/* Tarjetas de acceso: "Conocé el canotaje" */
+.access {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: 24px;
+}
+
+.access-card,
+.access-card:hover {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 28px 24px;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-linea);
+  border-radius: var(--radio-tarjeta);
+  color: var(--color-texto);
+  text-decoration: none;
+  transition:
+    transform var(--dur-media) var(--ease-estandar),
+    border-color var(--dur-rapida);
+}
+
+.access-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-accion);
+  box-shadow: 0 18px 30px -14px rgba(11, 74, 133, .28);
+}
+
+.access-card__filete {
+  display: block;
+  height: 3px;
+  margin: 0 -28px;
+  background: linear-gradient(90deg, var(--celeste-sello), transparent);
+}
+
+.access-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.access-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: var(--color-accion);
+  color: #fff;
+}
+
+.access-card__num {
+  font: 500 44px/.8 var(--font-mono);
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--azul-700);
+}
+
+.access-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.access-card__eyebrow {
+  font: 500 12px/1 var(--font-mono);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-texto-sec);
+}
+
+.access-card__title {
+  font: 700 26px/1.15 var(--font-titulo);
+}
+
+.access-card__desc {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-texto-sec);
+}
+
+.access-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.access-card__tag {
+  padding: 6px 12px;
+  border: 1px solid var(--color-linea);
+  border-radius: var(--radio-etiqueta);
+  background: var(--color-superficie-2);
+  font-size: 14px;
+  color: var(--color-texto);
+}
+
+.access-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-linea);
+  color: var(--color-accion);
+  font: 600 15px/1 var(--font-cuerpo);
+}

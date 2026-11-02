@@ -1,0 +1,40 @@
+/* Botón (del design system): primario y secundario */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: var(--radio-control);
+  font-family: var(--font-cuerpo);
+  font-size: 16px;
+  font-weight: var(--peso-semi);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background var(--dur-rapida) var(--ease-estandar),
+    color var(--dur-rapida) var(--ease-estandar);
+}
+
+.btn--primary,
+.btn--primary:hover {
+  color: var(--color-accion-texto);
+}
+
+.btn--primary { background: var(--color-accion); }
+.btn--primary:hover { background: var(--color-accion-hover); }
+
+.btn--secondary,
+.btn--secondary:hover {
+  color: var(--color-texto);
+}
+
+.btn--secondary {
+  background: var(--color-superficie);
+  border-color: var(--color-texto);
+}
+
+.btn--secondary:hover { background: var(--color-superficie-2); }

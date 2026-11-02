@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FUC · Inicio</title>
+    <!-- Aplica el tema guardado antes de pintar, para evitar un destello en modo claro -->
+    <script>
+      try {
+        if (localStorage.getItem('fuc-tema') === 'noche') document.documentElement.dataset.theme = 'noche';
+      } catch {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Crimson+Pro:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <!-- Íconos Lucide (trazo 2 px). Se usan con <svg class="icon"><use href="#i-nombre" /></svg> -->
+    <svg class="sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 12h16" /><path d="M4 6h16" /><path d="M4 18h16" /></symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></symbol>
+      <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></symbol>
+      <symbol id="i-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /><path d="M22 10v6" /><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></symbol>
+      <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></symbol>
+      <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" /><path d="m10 15 5-3-5-3z" /></symbol>
+    </svg>
+
+    <!-- ============ Encabezado ============ -->
+    <header class="site-header">
+      <!-- Escritorio -->
+      <div class="site-header__bar">
+        <div class="brand">
+          <a class="brand__link" href="#" aria-label="Federación Uruguaya de Canotaje, inicio">
+            <span class="brand__crop">
+              <img class="brand__logo" src="/src/assets/logo/logo-fuc.jpg" alt="Federación Uruguaya de Canotaje" />
+            </span>
+          </a>
+        </div>
+
+        <nav class="nav" aria-label="Principal">
+          <ul class="nav__list">
+            <li class="nav__item nav__item--has-sub">
+              <a class="nav__link" href="#" aria-haspopup="true">
+                Competencias
+                <svg class="icon icon--sm icon--muted"><use href="#i-chevron-down" /></svg>
+              </a>
+              <ul class="nav__sub">
+                <li><a href="#">Calendario<svg class="icon icon--sm icon--muted"><use href="#i-chevron-right" /></svg></a></li>
+                <li><a href="#">Velocidad<svg class="icon icon--sm icon--muted"><use href="#i-chevron-right" /></svg></a></li>
+                <li><a href="#">Maratón<svg class="icon icon--sm icon--muted"><use href="#i-chevron-right" /></svg></a></li>
+                <li><a href="#">Canoa turismo<svg class="icon icon--sm icon--muted"><use href="#i-chevron-right" /></svg></a></li>
+                <li><a href="#">Selección nacional<svg class="icon icon--sm icon--muted"><use href="#i-chevron-right" /></svg></a></li>
+              </ul>
+            </li>
+            <li class="nav__item"><a class="nav__link" href="#">Resultados</a></li>
+            <li class="nav__item"><a class="nav__link" href="#">Noticias</a></li>
+            <li class="nav__item nav__item--has-sub">
+              <a class="nav__link" href="#" aria-haspopup="true">
+                Clubes y escuelas
+                <svg class="icon icon--sm icon--muted"><use href="#i-chevron-down" /></svg>
+              </a>
+              <ul class="nav__sub">
+                <li><a href="#">Clubes afiliados<svg class="icon icon--sm icon--muted"><use href="#i-chevron-right" /></svg></a></li>
+                <li><a href="#">Escuelas de kayak<svg class="icon icon--sm icon--muted"><use href="#i-chevron-right" /></svg></a></li>
+                <li><a href="#">Cómo empezar<svg class="icon icon--sm icon--muted"><use href="#i-chevron-right" /></svg></a></li>
+              </ul>
+            </li>
+            <li class="nav__item nav__item--has-sub">
+              <a class="nav__link" href="#" aria-haspopup="true">
+                La federación
+                <svg class="icon icon--sm icon--muted"><use href="#i-chevron-down" /></svg>
+              </a>
+              <ul class="nav__sub">
+                <li><a href="#">Autoridades<svg class="icon icon--sm icon--muted"><use href="#i-chevron-right" /></svg></a></li>
+                <li><a href="#">Reglamentos<svg class="icon icon--sm icon--muted"><use href="#i-chevron-right" /></svg></a></li>
+                <li><a href="#">Historia<svg class="icon icon--sm icon--muted"><use href="#i-chevron-right" /></svg></a></li>
+                <li><a href="#">Contacto<svg class="icon icon--sm icon--muted"><use href="#i-chevron-right" /></svg></a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="search" role="search" hidden>
+          <div class="search__field">
+            <input class="search__input" type="search" placeholder="Buscar regatas, clubes, noticias…" aria-label="Buscar regatas, clubes, noticias" />
+            <svg class="icon search__icon"><use href="#i-search" /></svg>
+          </div>
+        </div>
+
+        <div class="site-header__actions">
+          <button class="icon-button" type="button" data-search-toggle aria-label="Buscar" title="Buscar" aria-expanded="false">
+            <svg class="icon icon--md icon-button__icon icon-button__icon--open"><use href="#i-search" /></svg>
+            <svg class="icon icon--md icon-button__icon icon-button__icon--close"><use href="#i-x" /></svg>
+          </button>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a modo noche" title="Modo noche">
+            <span class="theme-toggle__icon"><span class="theme-toggle__half"></span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Compacto (tablet y celular) -->
+      <div class="site-header__compact">
+        <div class="brand brand--compact">
+          <a class="brand__link" href="#" aria-label="Federación Uruguaya de Canotaje, inicio">
+            <span class="brand__crop">
+              <img class="brand__logo" src="/src/assets/logo/logo-fuc.jpg" alt="Federación Uruguaya de Canotaje" />
+            </span>
+          </a>
+        </div>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a modo noche" title="Modo noche">
+          <span class="theme-toggle__icon"><span class="theme-toggle__half"></span></span>
+        </button>
+        <button class="icon-button" type="button" data-menu-toggle aria-label="Abrir menú" title="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="icon icon--md icon-button__icon icon-button__icon--open"><use href="#i-menu" /></svg>
+          <svg class="icon icon--md icon-button__icon icon-button__icon--close"><use href="#i-x" /></svg>
+        </button>
+      </div>
+
+      <div class="mobile-menu" id="mobile-menu" hidden>
+        <div class="mobile-menu__search" role="search">
+          <input class="search__input" type="search" placeholder="Buscar" aria-label="Buscar" />
+          <svg class="icon search__icon"><use href="#i-search" /></svg>
+        </div>
+        <a class="mobile-menu__link" href="#">Competencias<svg class="icon icon--muted"><use href="#i-chevron-right" /></svg></a>
+        <a class="mobile-menu__link" href="#">Resultados<svg class="icon icon--muted"><use href="#i-chevron-right" /></svg></a>
+        <a class="mobile-menu__link" href="#">Noticias<svg class="icon icon--muted"><use href="#i-chevron-right" /></svg></a>
+        <a class="mobile-menu__link" href="#">Clubes y escuelas<svg class="icon icon--muted"><use href="#i-chevron-right" /></svg></a>
+        <a class="mobile-menu__link" href="#">La federación<svg class="icon icon--muted"><use href="#i-chevron-right" /></svg></a>
+      </div>
+    </header>
+
+    <!-- ============ Portada ============ -->
+    <section class="hero" aria-label="Portada">
+      <div class="hero__stage" data-theme="noche">
+        <img class="hero__photo" src="/src/assets/fondo-hero/hero.jpg" alt="Palistas compitiendo en kayak" />
+        <div class="hero__overlay"></div>
+        <div class="hero__overlay-narrow"></div>
+        <div class="hero__content">
+          <span class="hero__kicker">
+            <span class="hero__kicker-dot"></span>
+            Kayak y canoa en Uruguay
+            <span class="hero__kicker-line"></span>
+          </span>
+          <h1 class="hero__title">Federación Uruguaya<br />de Canotaje</h1>
+          <p class="hero__lead">Competencias, resultados, clubes y escuelas de todo el país, en un solo lugar.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#calendario">
+              Ver calendario
+              <svg class="icon icon--18"><use href="#i-arrow-right" /></svg>
+            </a>
+            <a class="btn btn--secondary" href="#resultados">Ver resultados</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="live-bar" data-theme="noche">
+        <div class="live-bar__glow" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="live-bar__line" aria-hidden="true"></div>
+        <div class="live-bar__content">
+          <span class="live-bar__status"><span class="live-bar__dot"></span>En curso</span>
+          <span class="live-bar__sep"></span>
+          <span class="live-bar__text">Semifinales · K1 200 m · Masculino mayores</span>
+          <a class="live-bar__link" href="#">
+            Seguir en vivo
+            <svg class="icon icon--sm"><use href="#i-arrow-right" /></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Navegación entre secciones ============ -->
+    <nav class="section-nav" aria-label="Secciones de la página">
+      <div class="section-nav__inner">
+        <a class="section-nav__link is-active" href="#noticias" data-section-link="noticias" aria-current="true">Noticias</a>
+        <a class="section-nav__link" href="#calendario" data-section-link="calendario">Calendario</a>
+        <a class="section-nav__link" href="#resultados" data-section-link="resultados">Resultados</a>
+        <a class="section-nav__link section-nav__link--extra" href="#federacion" data-section-link="federacion">Conocé el canotaje</a>
+        <div class="section-nav__more">
+          <button class="section-nav__more-button" type="button" data-section-more aria-label="Más secciones" aria-expanded="false">
+            <span class="section-nav__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+          </button>
+          <a class="section-nav__menu" href="#federacion" data-section-menu hidden>Conocé el canotaje</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- ============ 01 · Noticias ============ -->
+      <section class="section section--news" id="noticias" aria-labelledby="noticias-titulo">
+        <div class="section__decor section__decor--photo" aria-hidden="true"></div>
+        <div class="container">
+          <div class="section-head">
+            <div class="section-head__title">
+              <span class="section-head__num">01</span>
+              <div class="section-head__text">
+                <span class="eyebrow">Actualidad</span>
+                <h2 id="noticias-titulo">Últimas noticias</h2>
+              </div>
+            </div>
+            <a class="link-more" href="#">Ver todas<svg class="icon icon--18"><use href="#i-arrow-right" /></svg></a>
+          </div>
+
+          <div class="news">
+            <a class="news-card" href="#">
+              <img class="news-card__photo" src="/src/assets/noticias/seleccion-equipo.jpg" alt="Integrantes de la selección con su equipo" />
+              <div class="news-card__body">
+                <span class="news-card__meta">
+                  <span class="pill">Selección</span>
+                  <span class="date-label">14 OCT 2026</span>
+                </span>
+                <h3 class="news-card__title">Convocatoria de la selección nacional para el Sudamericano de Velocidad</h3>
+                <p class="news-card__lead">La lista de palistas y el cronograma de concentración.</p>
+                <span class="news-card__more">Leer nota<svg class="icon icon--18"><use href="#i-arrow-right" /></svg></span>
+              </div>
+            </a>
+
+            <div class="news__list">
+              <a class="news-card news-card--compact" href="#">
+                <img class="news-card__photo" src="/src/assets/noticias/k2-mixto.jpg" alt="K2 mixto en plena regata" />
+                <div class="news-card__body">
+                  <span class="news-card__meta">
+                    <span class="pill">Velocidad</span>
+                    <span class="date-label">06 OCT</span>
+                  </span>
+                  <h3 class="news-card__title">Crónica de la jornada en la Regata Apertura 2026</h3>
+                </div>
+              </a>
+              <a class="news-card news-card--compact" href="#">
+                <img class="news-card__photo" src="/src/assets/noticias/k4-dorsales.jpg" alt="K4 con dorsales en la línea de largada" />
+                <div class="news-card__body">
+                  <span class="news-card__meta">
+                    <span class="pill">Regatas</span>
+                    <span class="date-label">21 OCT</span>
+                  </span>
+                  <h3 class="news-card__title">Se presenta la Copa Lago Calcagno</h3>
+                </div>
+              </a>
+              <a class="news-card news-card--compact" href="#">
+                <img class="news-card__photo" src="/src/assets/noticias/canotaje6.jpg" alt="Palistas jóvenes largando en kayak" />
+                <div class="news-card__body">
+                  <span class="news-card__meta">
+                    <span class="pill">Escuelas</span>
+                    <span class="date-label">28 OCT</span>
+                  </span>
+                  <h3 class="news-card__title">Nuevo ciclo de escuelas de kayak en el Lago Calcagno</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="news__more">
+            <button class="btn btn--secondary" type="button">Cargar más</button>
+          </div>
+        </div>
+        <div class="section__fade section__fade--seam" aria-hidden="true"></div>
+      </section>
+
+      <!-- ============ 02 · Calendario ============ -->
+      <section class="section section--calendar" id="calendario" aria-labelledby="calendario-titulo">
+        <div class="section__decor section__decor--photo" aria-hidden="true"></div>
+        <div class="section__fade section__fade--seam-top" aria-hidden="true"></div>
+        <div class="container">
+          <div class="section-head">
+            <div class="section-head__title">
+              <span class="section-head__num">02</span>
+              <div class="section-head__text">
+                <span class="eyebrow">Próximas regatas</span>
+                <h2 id="calendario-titulo">Calendario</h2>
+              </div>
+            </div>
+            <a class="link-more" href="#">Calendario completo<svg class="icon icon--18"><use href="#i-arrow-right" /></svg></a>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Filtrar por disciplina">
+            <button class="tabs__tab" type="button" role="tab" aria-selected="true" data-filter="todas">Todas</button>
+            <button class="tabs__tab" type="button" role="tab" aria-selected="false" data-filter="velocidad">Velocidad</button>
+            <button class="tabs__tab" type="button" role="tab" aria-selected="false" data-filter="maraton">Maratón</button>
+            <button class="tabs__tab" type="button" role="tab" aria-selected="false" data-filter="turismo">Canoa turismo</button>
+          </div>
+
+          <div class="panel">
+            <div class="panel__filete"></div>
+
+            <a class="calendar-row is-first" href="#" data-disciplina="velocidad">
+              <div class="calendar-row__date">
+                <div class="calendar-row__day">
+                  <span class="calendar-row__num">08</span>
+                  <span class="calendar-row__month">NOV 2026</span>
+                </div>
+              </div>
+              <div class="calendar-row__main">
+                <div class="calendar-row__meta">
+                  <span class="status status--open">Inscripciones abiertas</span>
+                  <span class="calendar-row__discipline">Velocidad</span>
+                </div>
+                <h3 class="calendar-row__name">Copa Lago Calcagno</h3>
+                <div class="calendar-row__place"><svg class="icon icon--sm"><use href="#i-map-pin" /></svg>Lago Calcagno, Ciudad de la Costa</div>
+              </div>
+              <div class="calendar-row__cats">
+                <span class="chip">K1</span><span class="chip">K2</span><span class="chip">K4</span><span class="chip">C1</span><span class="chip">C2</span>
+              </div>
+              <span class="calendar-row__cta calendar-row__cta--primary">Ver programa<svg class="icon icon--18"><use href="#i-arrow-right" /></svg></span>
+            </a>
+
+            <a class="calendar-row" href="#" data-disciplina="maraton">
+              <div class="calendar-row__date">
+                <div class="calendar-row__day">
+                  <span class="calendar-row__num">22</span>
+                  <span class="calendar-row__month">NOV 2026</span>
+                </div>
+              </div>
+              <div class="calendar-row__main">
+                <div class="calendar-row__meta">
+                  <span class="status">Inscripciones cerradas</span>
+                  <span class="calendar-row__discipline">Maratón</span>
+                </div>
+                <h3 class="calendar-row__name">Maratón del Río Santa Lucía</h3>
+                <div class="calendar-row__place"><svg class="icon icon--sm"><use href="#i-map-pin" /></svg>Lago Calcagno, Ciudad de la Costa</div>
+              </div>
+              <div class="calendar-row__cats">
+                <span class="chip">K1</span><span class="chip">K2</span><span class="chip">C1</span>
+              </div>
+              <span class="calendar-row__cta">Ver inscriptos<svg class="icon icon--18"><use href="#i-arrow-right" /></svg></span>
+            </a>
+
+            <a class="calendar-row" href="#" data-disciplina="turismo">
+              <div class="calendar-row__date">
+                <div class="calendar-row__day">
+                  <span class="calendar-row__num">06</span>
+                  <span class="calendar-row__month">DIC 2026</span>
+                </div>
+              </div>
+              <div class="calendar-row__main">
+                <div class="calendar-row__meta">
+                  <span class="status">Finalizada</span>
+                  <span class="calendar-row__discipline">Canoa turismo</span>
+                </div>
+                <h3 class="calendar-row__name">Travesía Costa de Oro</h3>
+                <div class="calendar-row__place"><svg class="icon icon--sm"><use href="#i-map-pin" /></svg>Lago Calcagno, Ciudad de la Costa</div>
+              </div>
+              <div class="calendar-row__cats">
+                <span class="chip">K2</span><span class="chip">C2</span>
+              </div>
+              <span class="calendar-row__cta">Ver resultados<svg class="icon icon--18"><use href="#i-arrow-right" /></svg></span>
+            </a>
+          </div>
+        </div>
+        <div class="section__fade section__fade--seam" aria-hidden="true"></div>
+      </section>
+
+      <!-- ============ 03 · Resultados ============ -->
+      <section class="section section--results" id="resultados" aria-labelledby="resultados-titulo">
+        <div class="section__decor section__decor--photo" aria-hidden="true"></div>
+        <div class="section__fade section__fade--seam-top" aria-hidden="true"></div>
+        <div class="container">
+          <div class="section-head">
+            <div class="section-head__title">
+              <span class="section-head__num">03</span>
+              <div class="section-head__text">
+                <span class="eyebrow">Regata Apertura 2026</span>
+                <h2 id="resultados-titulo">Últimos resultados</h2>
+              </div>
+            </div>
+            <a class="link-more" href="#">Todos los resultados<svg class="icon icon--18"><use href="#i-arrow-right" /></svg></a>
+          </div>
+
+          <div class="results">
+            <div class="results__events" role="tablist" aria-label="Eventos">
+              <span class="eyebrow results__events-label">Elegí una prueba</span>
+              <button class="event-tab" type="button" role="tab" aria-selected="true" data-event-tab="0">
+                <span class="event-tab__num">01</span>
+                <span class="event-tab__text">
+                  <span class="event-tab__phase">Final A</span>
+                  <span class="event-tab__detail">K1 500 m · Masculino mayores</span>
+                </span>
+                <svg class="icon icon--18"><use href="#i-chevron-right" /></svg>
+              </button>
+              <button class="event-tab" type="button" role="tab" aria-selected="false" data-event-tab="1">
+                <span class="event-tab__num">02</span>
+                <span class="event-tab__text">
+                  <span class="event-tab__phase">Final A</span>
+                  <span class="event-tab__detail">K2 500 m · Mixto juveniles</span>
+                </span>
+                <svg class="icon icon--18"><use href="#i-chevron-right" /></svg>
+              </button>
+              <button class="event-tab" type="button" role="tab" aria-selected="false" data-event-tab="2">
+                <span class="event-tab__num">03</span>
+                <span class="event-tab__text">
+                  <span class="event-tab__phase">Semifinal 1</span>
+                  <span class="event-tab__detail">C1 200 m · Masculino mayores</span>
+                </span>
+                <svg class="icon icon--18"><use href="#i-chevron-right" /></svg>
+              </button>
+              <button class="event-tab" type="button" role="tab" aria-selected="false" data-event-tab="3">
+                <span class="event-tab__num">04</span>
+                <span class="event-tab__text">
+                  <span class="event-tab__phase">Final</span>
+                  <span class="event-tab__detail">K4 1000 m · Femenino mayores</span>
+                </span>
+                <svg class="icon icon--18"><use href="#i-chevron-right" /></svg>
+              </button>
+            </div>
+
+            <div class="results__panels">
+              <!-- Prueba 1: Final A · K1 500 m -->
+              <div class="panel" role="tabpanel" data-event-panel="0">
+                <div class="panel__filete"></div>
+                <div class="results-head">
+                  <div class="results-head__text">
+                    <h3 class="results-head__title">Final A · K1 500 m</h3>
+                    <span class="results-head__sub">Masculino mayores · 10:40 h</span>
+                  </div>
+                  <span class="status status--final"><span class="status__dot"></span>Finalizada</span>
+                </div>
+                <div class="results-cols"><span>POS</span><span>DEPORTISTA · CLUB</span><span>TIEMPO</span></div>
+
+                <div class="results-row results-row--leader">
+                  <span class="results-row__medal" role="img" aria-label="Primer puesto">🥇</span>
+                  <div class="results-row__who"><span class="results-row__name">Martín Rodríguez</span><span class="results-row__club">Club Náutico Montevideo · <span class="results-row__lane">Carril 4</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">1:41.27</span></div>
+                </div>
+                <div class="results-row">
+                  <span class="results-row__medal" role="img" aria-label="Segundo puesto">🥈</span>
+                  <div class="results-row__who"><span class="results-row__name">Santiago Pereira</span><span class="results-row__club">Remeros de Colonia · <span class="results-row__lane">Carril 5</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">1:42.05</span><span class="results-row__gap">+0.78</span></div>
+                </div>
+                <div class="results-row">
+                  <span class="results-row__medal" role="img" aria-label="Tercer puesto">🥉</span>
+                  <div class="results-row__who"><span class="results-row__name">Facundo Techera</span><span class="results-row__club">Club Kayak Maldonado · <span class="results-row__lane">Carril 3</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">1:43.88</span><span class="results-row__gap">+2.61</span></div>
+                </div>
+                <div class="results-row">
+                  <span class="results-row__pos">4</span>
+                  <div class="results-row__who"><span class="results-row__name">Joaquín Acosta</span><span class="results-row__club">Canoas del Plata · <span class="results-row__lane">Carril 6</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">1:44.10</span><span class="results-row__gap">+2.83</span></div>
+                </div>
+                <div class="results-foot">Diferencias respecto del primero. DNS: no largó · DNF: no finalizó · DSQ: descalificado.</div>
+              </div>
+
+              <!-- Prueba 2: Final A · K2 500 m -->
+              <div class="panel" role="tabpanel" data-event-panel="1" hidden>
+                <div class="panel__filete"></div>
+                <div class="results-head">
+                  <div class="results-head__text">
+                    <h3 class="results-head__title">Final A · K2 500 m</h3>
+                    <span class="results-head__sub">Mixto juveniles · 11:10 h</span>
+                  </div>
+                  <span class="status status--final"><span class="status__dot"></span>Finalizada</span>
+                </div>
+                <div class="results-cols"><span>POS</span><span>DEPORTISTA · CLUB</span><span>TIEMPO</span></div>
+
+                <div class="results-row results-row--leader">
+                  <span class="results-row__medal" role="img" aria-label="Primer puesto">🥇</span>
+                  <div class="results-row__who"><span class="results-row__name">Lucía Fernández / Mateo Silva</span><span class="results-row__club">Remeros de Colonia · <span class="results-row__lane">Carril 3</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">1:38.64</span></div>
+                </div>
+                <div class="results-row">
+                  <span class="results-row__medal" role="img" aria-label="Segundo puesto">🥈</span>
+                  <div class="results-row__who"><span class="results-row__name">Camila Ortiz / Bruno Díaz</span><span class="results-row__club">Club Náutico Montevideo · <span class="results-row__lane">Carril 4</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">1:39.31</span><span class="results-row__gap">+0.67</span></div>
+                </div>
+                <div class="results-row">
+                  <span class="results-row__medal" role="img" aria-label="Tercer puesto">🥉</span>
+                  <div class="results-row__who"><span class="results-row__name">Valeria Núñez / Tomás Rey</span><span class="results-row__club">Club Kayak Maldonado · <span class="results-row__lane">Carril 5</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">1:40.92</span><span class="results-row__gap">+2.28</span></div>
+                </div>
+                <div class="results-row">
+                  <span class="results-row__pos">4</span>
+                  <div class="results-row__who"><span class="results-row__name">Ana Souza / Nicolás Vera</span><span class="results-row__club">Canoas del Plata · <span class="results-row__lane">Carril 2</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">1:41.55</span><span class="results-row__gap">+2.91</span></div>
+                </div>
+                <div class="results-foot">Diferencias respecto del primero. DNS: no largó · DNF: no finalizó · DSQ: descalificado.</div>
+              </div>
+
+              <!-- Prueba 3: Semifinal 1 · C1 200 m (sin medallas) -->
+              <div class="panel" role="tabpanel" data-event-panel="2" hidden>
+                <div class="panel__filete"></div>
+                <div class="results-head">
+                  <div class="results-head__text">
+                    <h3 class="results-head__title">Semifinal 1 · C1 200 m</h3>
+                    <span class="results-head__sub">Masculino mayores · 09:20 h</span>
+                  </div>
+                  <span class="status status--final"><span class="status__dot"></span>Finalizada</span>
+                </div>
+                <div class="results-cols"><span>POS</span><span>DEPORTISTA · CLUB</span><span>TIEMPO</span></div>
+
+                <div class="results-row">
+                  <span class="results-row__pos">1</span>
+                  <div class="results-row__who"><span class="results-row__name">Gonzalo Barrios</span><span class="results-row__club">Club Náutico Montevideo · <span class="results-row__lane">Carril 4</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">42.31</span></div>
+                </div>
+                <div class="results-row">
+                  <span class="results-row__pos">2</span>
+                  <div class="results-row__who"><span class="results-row__name">Andrés Cabrera</span><span class="results-row__club">Canoas del Plata · <span class="results-row__lane">Carril 3</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">42.97</span><span class="results-row__gap">+0.66</span></div>
+                </div>
+                <div class="results-row">
+                  <span class="results-row__pos">3</span>
+                  <div class="results-row__who"><span class="results-row__name">Ignacio Lema</span><span class="results-row__club">Remeros de Colonia · <span class="results-row__lane">Carril 5</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">43.40</span><span class="results-row__gap">+1.09</span></div>
+                </div>
+                <div class="results-row">
+                  <span class="results-row__pos">4</span>
+                  <div class="results-row__who"><span class="results-row__name">Diego Márquez</span><span class="results-row__club">Club Kayak Maldonado · <span class="results-row__lane">Carril 2</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">44.02</span><span class="results-row__gap">+1.71</span></div>
+                </div>
+                <div class="results-foot">Diferencias respecto del primero. DNS: no largó · DNF: no finalizó · DSQ: descalificado.</div>
+              </div>
+
+              <!-- Prueba 4: Final · K4 1000 m -->
+              <div class="panel" role="tabpanel" data-event-panel="3" hidden>
+                <div class="panel__filete"></div>
+                <div class="results-head">
+                  <div class="results-head__text">
+                    <h3 class="results-head__title">Final · K4 1000 m</h3>
+                    <span class="results-head__sub">Femenino mayores · 12:00 h</span>
+                  </div>
+                  <span class="status status--final"><span class="status__dot"></span>Finalizada</span>
+                </div>
+                <div class="results-cols"><span>POS</span><span>DEPORTISTA · CLUB</span><span>TIEMPO</span></div>
+
+                <div class="results-row results-row--leader">
+                  <span class="results-row__medal" role="img" aria-label="Primer puesto">🥇</span>
+                  <div class="results-row__who"><span class="results-row__name">Equipo A</span><span class="results-row__club">Club Náutico Montevideo · <span class="results-row__lane">Carril 4</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">3:21.48</span></div>
+                </div>
+                <div class="results-row">
+                  <span class="results-row__medal" role="img" aria-label="Segundo puesto">🥈</span>
+                  <div class="results-row__who"><span class="results-row__name">Equipo B</span><span class="results-row__club">Remeros de Colonia · <span class="results-row__lane">Carril 3</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">3:23.10</span><span class="results-row__gap">+1.62</span></div>
+                </div>
+                <div class="results-row">
+                  <span class="results-row__medal" role="img" aria-label="Tercer puesto">🥉</span>
+                  <div class="results-row__who"><span class="results-row__name">Equipo C</span><span class="results-row__club">Canoas del Plata · <span class="results-row__lane">Carril 5</span></span></div>
+                  <div class="results-row__time"><span class="results-row__clock">3:25.77</span><span class="results-row__gap">+4.29</span></div>
+                </div>
+                <div class="results-foot">Diferencias respecto del primero. DNS: no largó · DNF: no finalizó · DSQ: descalificado.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section__fade section__fade--bottom" aria-hidden="true"></div>
+      </section>
+
+      <!-- ============ 04 · Conocé el canotaje ============ -->
+      <section class="section section--federation" id="federacion" aria-labelledby="federacion-titulo">
+        <div class="section__decor section__decor--dots" aria-hidden="true"></div>
+        <div class="container">
+          <div class="section-head">
+            <div class="section-head__title">
+              <span class="section-head__num">04</span>
+              <div class="section-head__text">
+                <span class="eyebrow">Empezá a palear</span>
+                <h2 id="federacion-titulo">Conocé el canotaje</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="access">
+            <a class="access-card card" href="#">
+              <span class="access-card__filete"></span>
+              <span class="access-card__top">
+                <span class="access-card__icon"><svg class="icon icon--26"><use href="#i-users" /></svg></span>
+                <span class="access-card__num">01</span>
+              </span>
+              <span class="access-card__body">
+                <span class="access-card__eyebrow">Dónde palear</span>
+                <span class="access-card__title">Clubes afiliados</span>
+                <span class="access-card__desc">Encontrá el club más cercano, conocé sus embarcaciones y cómo contactarlo para sumarte.</span>
+              </span>
+              <span class="access-card__tags">
+                <span class="access-card__tag">Por departamento</span>
+                <span class="access-card__tag">Contacto directo</span>
+                <span class="access-card__tag">Categorías</span>
+              </span>
+              <span class="access-card__cta">Ver clubes<svg class="icon icon--md"><use href="#i-arrow-up-right" /></svg></span>
+            </a>
+
+            <a class="access-card card" href="#">
+              <span class="access-card__filete"></span>
+              <span class="access-card__top">
+                <span class="access-card__icon"><svg class="icon icon--26"><use href="#i-graduation-cap" /></svg></span>
+                <span class="access-card__num">02</span>
+              </span>
+              <span class="access-card__body">
+                <span class="access-card__eyebrow">Primeras remadas</span>
+                <span class="access-card__title">Escuelas de kayak</span>
+                <span class="access-card__desc">Empezá a palear con instructores habilitados, equipo provisto y grupos por edad.</span>
+              </span>
+              <span class="access-card__tags">
+                <span class="access-card__tag">Instructores</span>
+                <span class="access-card__tag">Todas las edades</span>
+                <span class="access-card__tag">Equipo incluido</span>
+              </span>
+              <span class="access-card__cta">Ver escuelas<svg class="icon icon--md"><use href="#i-arrow-up-right" /></svg></span>
+            </a>
+
+            <a class="access-card card" href="#">
+              <span class="access-card__filete"></span>
+              <span class="access-card__top">
+                <span class="access-card__icon"><svg class="icon icon--26"><use href="#i-file-text" /></svg></span>
+                <span class="access-card__num">03</span>
+              </span>
+              <span class="access-card__body">
+                <span class="access-card__eyebrow">Marco oficial</span>
+                <span class="access-card__title">Reglamentos</span>
+                <span class="access-card__desc">Normas de competencia, categorías y documentos oficiales de la federación.</span>
+              </span>
+              <span class="access-card__tags">
+                <span class="access-card__tag">Competencia</span>
+                <span class="access-card__tag">Categorías</span>
+                <span class="access-card__tag">Documentos</span>
+              </span>
+              <span class="access-card__cta">Ver reglamentos<svg class="icon icon--md"><use href="#i-arrow-up-right" /></svg></span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ Pie de página ============ -->
+    <footer class="site-footer" data-theme="noche">
+      <div class="site-footer__inner">
+        <div class="site-footer__grid">
+          <div class="site-footer__brand">
+            <span class="signature">
+              <img class="signature__seal" src="/src/assets/logo/sello-fuc.jpg" alt="Federación Uruguaya de Canotaje" />
+              <span class="signature__divider"></span>
+              <span class="signature__text">
+                <span class="signature__name">FUC</span>
+                <span class="signature__full">Federación Uruguaya de Canotaje</span>
+              </span>
+            </span>
+            <div class="site-footer__contact">
+              <span><svg class="icon icon--18"><use href="#i-map-pin" /></svg>Lago Calcagno, 15000 Ciudad de la Costa, Canelones</span>
+              <span><svg class="icon icon--18"><use href="#i-mail" /></svg>secretaria@fuc.org.uy</span>
+            </div>
+          </div>
+
+          <div class="site-footer__col">
+            <span class="site-footer__col-title">Competencias</span>
+            <a href="#">Calendario</a>
+            <a href="#">Resultados</a>
+            <a href="#">Selección nacional</a>
+            <a href="#">Reglamentos</a>
+          </div>
+
+          <div class="site-footer__col">
+            <span class="site-footer__col-title">La federación</span>
+            <a href="#">Autoridades</a>
+            <a href="#">Clubes afiliados</a>
+            <a href="#">Prensa</a>
+            <a href="#">Contacto</a>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <div class="site-footer__legal">
+            <span>© 2026 Federación Uruguaya de Canotaje</span>
+            <a href="#">Privacidad</a>
+            <a href="#">Términos de uso</a>
+            <a class="site-footer__top" href="#">Volver arriba<svg class="icon icon--sm"><use href="#i-arrow-up" /></svg></a>
+          </div>
+          <div class="site-footer__social">
+            <a class="icon-button" href="#" aria-label="Instagram" title="Instagram"><svg class="icon icon--md"><use href="#i-instagram" /></svg></a>
+            <a class="icon-button" href="#" aria-label="Facebook" title="Facebook"><svg class="icon icon--md"><use href="#i-facebook" /></svg></a>
+            <a class="icon-button" href="#" aria-label="YouTube" title="YouTube"><svg class="icon icon--md"><use href="#i-youtube" /></svg></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

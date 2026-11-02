@@ -1,0 +1,144 @@
+/* Secciones: fondo, decoración, contenedor y encabezado de sección */
+.section {
+  /* Color donde se funden dos secciones con foto consecutivas */
+  --seam: color-mix(in srgb, var(--color-hero-bg) 70%, #fff);
+  position: relative;
+  isolation: isolate;
+  scroll-margin-top: 72px;
+  color: var(--color-texto);
+}
+
+.section--results {
+  overflow: hidden;
+  background: var(--color-fondo);
+}
+
+.section--calendar {
+  overflow: hidden;
+  background-image: linear-gradient(180deg, var(--color-hero-bg), var(--color-fondo) 55%);
+}
+
+.section--federation {
+  background-image: linear-gradient(180deg, var(--color-hero-bg), color-mix(in srgb, var(--color-hero-bg) 40%, var(--color-fondo)) 45%, var(--color-fondo) 85%);
+}
+
+/* En modo noche las secciones pierden el degradé y las capas decorativas se atenúan */
+html[data-theme="noche"] .section { background-image: none; --seam: var(--color-fondo); }
+html[data-theme="noche"] .section__decor,
+html[data-theme="noche"] .section__fade { opacity: .35; }
+
+.section__decor {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Foto de fondo desenfocada: el margen negativo evita que el blur deje bordes claros */
+.section__decor--photo {
+  inset: -40px;
+}
+
+/* Puntos (conocé el canotaje) */
+.section__decor--dots {
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--celeste-sello) 40%, transparent) 1px, transparent 1.5px);
+  background-size: 28px 28px;
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent 70%);
+  mask-image: linear-gradient(180deg, #000, transparent 70%);
+}
+
+/* Degradé en el borde inferior para fundir una sección con la siguiente */
+.section__fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+/* Costura entre dos secciones con foto: la de arriba se funde hacia --seam y la de abajo arranca desde él */
+.section__fade--seam {
+  height: clamp(60px, 9vw, 120px);
+  background: linear-gradient(180deg, transparent, var(--seam));
+}
+
+.section__fade--seam-top {
+  top: 0;
+  bottom: auto;
+  height: clamp(60px, 9vw, 120px);
+  background: linear-gradient(180deg, var(--seam), transparent);
+}
+
+/* En modo noche la costura no se atenúa: así sí tapa el corte entre las dos fotos */
+html[data-theme="noche"] .section__fade--seam,
+html[data-theme="noche"] .section__fade--seam-top { opacity: 1; }
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: clamp(56px, 7vw, 104px) max(var(--margen-celular), min(var(--margen-escritorio), 4vw));
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  padding-bottom: 20px;
+  background: linear-gradient(90deg, var(--celeste-sello), transparent 70%) bottom / 100% 1px no-repeat;
+}
+
+.section-head__title {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+/* Número grande con solo el contorno */
+.section-head__num {
+  font: 600 clamp(44px, 6vw, 84px)/.8 var(--font-mono);
+  color: transparent;
+  -webkit-text-stroke: 2px var(--azul-700);
+  letter-spacing: -.04em;
+}
+
+.section-head__text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-head h2 {
+  margin: 0;
+  font-family: var(--font-hero, var(--font-titulo));
+  font-weight: var(--hero-weight, 700);
+  text-transform: none;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.02;
+  letter-spacing: var(--hero-tracking, -.02em);
+}
+
+.eyebrow {
+  font: 500 12px/1 var(--font-mono);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--color-texto-sec);
+}
+
+a.link-more,
+a.link-more:hover {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--toque-min);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--color-accion);
+}
