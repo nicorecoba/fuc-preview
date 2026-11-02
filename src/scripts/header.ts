@@ -44,7 +44,7 @@ function initSearchToggle(): void {
   if (!button || !nav || !search || !input) return;
 
   button.addEventListener('click', () => {
-    const abrir = search.hidden;
+    const abrir = search.hidden !== false;
     search.hidden = !abrir;
     nav.hidden = abrir;
     button.classList.toggle('is-active', abrir);
@@ -61,7 +61,7 @@ function initMobileMenu(): void {
   if (!button || !menu) return;
 
   button.addEventListener('click', () => {
-    const abrir = menu.hidden;
+    const abrir = menu.hidden !== false;
     menu.hidden = !abrir;
     button.classList.toggle('is-active', abrir);
     button.setAttribute('aria-expanded', String(abrir));

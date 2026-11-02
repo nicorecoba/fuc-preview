@@ -41,7 +41,7 @@ function initMoreMenu(): void {
     button.setAttribute('aria-expanded', String(abrir));
   };
 
-  button.addEventListener('click', () => toggle(menu.hidden));
+  button.addEventListener('click', () => toggle(menu.hidden !== false));
   menu.addEventListener('click', () => toggle(false));
 }
 
