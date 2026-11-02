@@ -1,20 +1,25 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-vista="moderna">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FUC · Inicio</title>
-    <!-- Aplica el tema guardado antes de pintar, para evitar un destello en modo claro -->
+    <!-- Aplica el tema y la vista guardados antes de pintar, para evitar un destello de la vista equivocada -->
     <script>
       try {
         if (localStorage.getItem('fuc-tema') === 'noche') document.documentElement.dataset.theme = 'noche';
+      } catch {}
+      try {
+        var pedida = new URLSearchParams(window.location.search).get('vista');
+        var vista = pedida === 'formal' || pedida === 'moderna' ? pedida : localStorage.getItem('fuc-vista');
+        document.documentElement.dataset.vista = vista === 'formal' ? 'formal' : 'moderna';
       } catch {}
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Crimson+Pro:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Crimson+Pro:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600&display=swap"
     />
     <script type="module" src="/src/main.ts"></script>
   </head>
@@ -50,6 +55,14 @@
             </span>
           </a>
         </div>
+
+        <a class="brand-formal" href="#" aria-label="Federación Uruguaya de Canotaje, inicio">
+          <img class="brand-formal__seal" src="/src/assets/logo/sello-fuc.jpg" alt="" />
+          <span class="brand-formal__text">
+            <span class="brand-formal__name">Federación Uruguaya</span>
+            <span class="brand-formal__sub">de Canotaje</span>
+          </span>
+        </a>
 
         <nav class="nav" aria-label="Principal">
           <ul class="nav__list">
@@ -102,6 +115,10 @@
         </div>
 
         <div class="site-header__actions">
+          <div class="view-switch" role="group" aria-label="Versión del sitio">
+            <button class="view-switch__button" type="button" data-view="moderna" aria-pressed="true">Moderna</button>
+            <button class="view-switch__button" type="button" data-view="formal" aria-pressed="false">Formal</button>
+          </div>
           <button class="icon-button" type="button" data-search-toggle aria-label="Buscar" title="Buscar" aria-expanded="false">
             <svg class="icon icon--md icon-button__icon icon-button__icon--open"><use href="#i-search" /></svg>
             <svg class="icon icon--md icon-button__icon icon-button__icon--close"><use href="#i-x" /></svg>
@@ -120,6 +137,14 @@
               <img class="brand__logo" src="/src/assets/logo/logo-fuc.jpg" alt="Federación Uruguaya de Canotaje" />
             </span>
           </a>
+        </div>
+        <a class="brand-formal brand-formal--compact" href="#" aria-label="Federación Uruguaya de Canotaje, inicio">
+          <img class="brand-formal__seal" src="/src/assets/logo/sello-fuc.jpg" alt="" />
+          <span class="brand-formal__compact-name">Federación Uruguaya<br />de Canotaje</span>
+        </a>
+        <div class="view-switch" role="group" aria-label="Versión del sitio">
+          <button class="view-switch__button" type="button" data-view="moderna" aria-pressed="true">Moderna</button>
+          <button class="view-switch__button" type="button" data-view="formal" aria-pressed="false">Formal</button>
         </div>
         <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a modo noche" title="Modo noche">
           <span class="theme-toggle__icon"><span class="theme-toggle__half"></span></span>
@@ -429,17 +454,17 @@
                 <div class="results-cols"><span>POS</span><span>DEPORTISTA · CLUB</span><span>TIEMPO</span></div>
 
                 <div class="results-row results-row--leader">
-                  <span class="results-row__medal" role="img" aria-label="Primer puesto">🥇</span>
+                  <span class="results-row__pos results-row__pos--podium"><span class="results-row__medal" role="img" aria-label="Primer puesto">🥇</span><span class="results-row__num">1</span><span class="results-row__dot results-row__dot--oro"></span></span>
                   <div class="results-row__who"><span class="results-row__name">Martín Rodríguez</span><span class="results-row__club">Club Náutico Montevideo · <span class="results-row__lane">Carril 4</span></span></div>
                   <div class="results-row__time"><span class="results-row__clock">1:41.27</span></div>
                 </div>
                 <div class="results-row">
-                  <span class="results-row__medal" role="img" aria-label="Segundo puesto">🥈</span>
+                  <span class="results-row__pos results-row__pos--podium"><span class="results-row__medal" role="img" aria-label="Segundo puesto">🥈</span><span class="results-row__num">2</span><span class="results-row__dot results-row__dot--plata"></span></span>
                   <div class="results-row__who"><span class="results-row__name">Santiago Pereira</span><span class="results-row__club">Remeros de Colonia · <span class="results-row__lane">Carril 5</span></span></div>
                   <div class="results-row__time"><span class="results-row__clock">1:42.05</span><span class="results-row__gap">+0.78</span></div>
                 </div>
                 <div class="results-row">
-                  <span class="results-row__medal" role="img" aria-label="Tercer puesto">🥉</span>
+                  <span class="results-row__pos results-row__pos--podium"><span class="results-row__medal" role="img" aria-label="Tercer puesto">🥉</span><span class="results-row__num">3</span><span class="results-row__dot results-row__dot--bronce"></span></span>
                   <div class="results-row__who"><span class="results-row__name">Facundo Techera</span><span class="results-row__club">Club Kayak Maldonado · <span class="results-row__lane">Carril 3</span></span></div>
                   <div class="results-row__time"><span class="results-row__clock">1:43.88</span><span class="results-row__gap">+2.61</span></div>
                 </div>
@@ -464,17 +489,17 @@
                 <div class="results-cols"><span>POS</span><span>DEPORTISTA · CLUB</span><span>TIEMPO</span></div>
 
                 <div class="results-row results-row--leader">
-                  <span class="results-row__medal" role="img" aria-label="Primer puesto">🥇</span>
+                  <span class="results-row__pos results-row__pos--podium"><span class="results-row__medal" role="img" aria-label="Primer puesto">🥇</span><span class="results-row__num">1</span><span class="results-row__dot results-row__dot--oro"></span></span>
                   <div class="results-row__who"><span class="results-row__name">Lucía Fernández / Mateo Silva</span><span class="results-row__club">Remeros de Colonia · <span class="results-row__lane">Carril 3</span></span></div>
                   <div class="results-row__time"><span class="results-row__clock">1:38.64</span></div>
                 </div>
                 <div class="results-row">
-                  <span class="results-row__medal" role="img" aria-label="Segundo puesto">🥈</span>
+                  <span class="results-row__pos results-row__pos--podium"><span class="results-row__medal" role="img" aria-label="Segundo puesto">🥈</span><span class="results-row__num">2</span><span class="results-row__dot results-row__dot--plata"></span></span>
                   <div class="results-row__who"><span class="results-row__name">Camila Ortiz / Bruno Díaz</span><span class="results-row__club">Club Náutico Montevideo · <span class="results-row__lane">Carril 4</span></span></div>
                   <div class="results-row__time"><span class="results-row__clock">1:39.31</span><span class="results-row__gap">+0.67</span></div>
                 </div>
                 <div class="results-row">
-                  <span class="results-row__medal" role="img" aria-label="Tercer puesto">🥉</span>
+                  <span class="results-row__pos results-row__pos--podium"><span class="results-row__medal" role="img" aria-label="Tercer puesto">🥉</span><span class="results-row__num">3</span><span class="results-row__dot results-row__dot--bronce"></span></span>
                   <div class="results-row__who"><span class="results-row__name">Valeria Núñez / Tomás Rey</span><span class="results-row__club">Club Kayak Maldonado · <span class="results-row__lane">Carril 5</span></span></div>
                   <div class="results-row__time"><span class="results-row__clock">1:40.92</span><span class="results-row__gap">+2.28</span></div>
                 </div>
@@ -534,17 +559,17 @@
                 <div class="results-cols"><span>POS</span><span>DEPORTISTA · CLUB</span><span>TIEMPO</span></div>
 
                 <div class="results-row results-row--leader">
-                  <span class="results-row__medal" role="img" aria-label="Primer puesto">🥇</span>
+                  <span class="results-row__pos results-row__pos--podium"><span class="results-row__medal" role="img" aria-label="Primer puesto">🥇</span><span class="results-row__num">1</span><span class="results-row__dot results-row__dot--oro"></span></span>
                   <div class="results-row__who"><span class="results-row__name">Equipo A</span><span class="results-row__club">Club Náutico Montevideo · <span class="results-row__lane">Carril 4</span></span></div>
                   <div class="results-row__time"><span class="results-row__clock">3:21.48</span></div>
                 </div>
                 <div class="results-row">
-                  <span class="results-row__medal" role="img" aria-label="Segundo puesto">🥈</span>
+                  <span class="results-row__pos results-row__pos--podium"><span class="results-row__medal" role="img" aria-label="Segundo puesto">🥈</span><span class="results-row__num">2</span><span class="results-row__dot results-row__dot--plata"></span></span>
                   <div class="results-row__who"><span class="results-row__name">Equipo B</span><span class="results-row__club">Remeros de Colonia · <span class="results-row__lane">Carril 3</span></span></div>
                   <div class="results-row__time"><span class="results-row__clock">3:23.10</span><span class="results-row__gap">+1.62</span></div>
                 </div>
                 <div class="results-row">
-                  <span class="results-row__medal" role="img" aria-label="Tercer puesto">🥉</span>
+                  <span class="results-row__pos results-row__pos--podium"><span class="results-row__medal" role="img" aria-label="Tercer puesto">🥉</span><span class="results-row__num">3</span><span class="results-row__dot results-row__dot--bronce"></span></span>
                   <div class="results-row__who"><span class="results-row__name">Equipo C</span><span class="results-row__club">Canoas del Plata · <span class="results-row__lane">Carril 5</span></span></div>
                   <div class="results-row__time"><span class="results-row__clock">3:25.77</span><span class="results-row__gap">+4.29</span></div>
                 </div>

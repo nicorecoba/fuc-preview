@@ -1,0 +1,39 @@
+/* Selector de vista (Moderna | Formal), a la izquierda del buscador */
+.view-switch {
+  display: flex;
+  flex: none;
+  height: 40px;
+  overflow: hidden;
+  border: 1px solid var(--color-linea);
+  border-radius: 6px;
+}
+
+.view-switch__button {
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  border: 0;
+  background: transparent;
+  color: var(--color-texto-sec);
+  font-family: var(--font-cuerpo);
+  font-size: 14px;
+  font-weight: var(--peso-medio);
+  cursor: pointer;
+}
+
+.view-switch__button:hover {
+  background: var(--color-superficie-2);
+}
+
+.view-switch__button[aria-pressed="true"],
+.view-switch__button[aria-pressed="true"]:hover {
+  background: var(--color-accion);
+  color: var(--color-accion-texto);
+  font-weight: var(--peso-semi);
+}
+
+/* En la barra compacta el selector es un poco más angosto */
+.site-header__compact .view-switch__button {
+  padding: 0 10px;
+  font-size: 13px;
+}

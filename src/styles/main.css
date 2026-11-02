@@ -8,6 +8,7 @@
 @import './components/tag.css';
 @import './components/card.css';
 @import './components/header.css';
+@import './components/view-switch.css';
 @import './components/hero.css';
 @import './components/section-nav.css';
 @import './components/news.css';
@@ -15,3 +16,6 @@
 @import './components/results.css';
 @import './components/access.css';
 @import './components/footer.css';
+
+/* Vistas: van al final para pisar a la vista moderna, que es la base. */
+@import './views/formal.css';

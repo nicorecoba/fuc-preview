@@ -205,6 +205,10 @@
   color: var(--color-texto-sec);
 }
 
+/* Podio: la vista moderna muestra el emoji; el número y el punto de color son de la vista formal */
+.results-row__pos--podium .results-row__num,
+.results-row__pos--podium .results-row__dot { display: none; }
+
 /* Medalla: emoji 🥇🥈🥉 en la columna de posición (el emoji reemplaza al número) */
 .results-row__medal {
   display: block;
