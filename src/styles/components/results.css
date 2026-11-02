@@ -1,17 +1,4 @@
-/* Resultados: foto de fondo, selector de pruebas y tabla de posiciones */
-.section--results .section__decor--photo {
-  filter: blur(7px);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, .4), rgba(255, 255, 255, .34) 55%, rgba(255, 255, 255, .3)),
-    url('../../assets/noticias/ultimos-resultados-bg.jpg') center 60% / cover no-repeat;
-}
-
-/* Degradé inferior que funde la sección con la siguiente */
-.section--results .section__fade--bottom {
-  height: clamp(140px, 20vw, 280px);
-  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--color-hero-bg) 55%, transparent) 55%, var(--color-hero-bg));
-}
-
+/* Resultados: selector de pruebas y tabla de posiciones */
 .results {
   display: flex;
   flex-wrap: wrap;
@@ -37,11 +24,10 @@
   gap: 14px;
   min-height: 64px;
   padding: 12px 16px;
-  border: 1px solid rgba(255, 255, 255, .7);
+  border: 1px solid var(--color-linea);
   border-radius: 12px;
-  background: rgba(255, 255, 255, .4);
-  -webkit-backdrop-filter: blur(28px) saturate(1.1);
-  backdrop-filter: blur(28px) saturate(1.1);
+  background: var(--color-superficie);
+  box-shadow: 0 1px 2px rgba(15, 34, 54, .05), 0 8px 20px -14px rgba(15, 34, 54, .18);
   color: var(--color-texto);
   font: inherit;
   text-align: left;
@@ -138,7 +124,7 @@
 }
 
 .results-row {
-  padding-block: 14px;
+  padding-block: 16px;
 }
 
 .results-row + .results-row {
@@ -149,11 +135,12 @@
   background: color-mix(in srgb, var(--celeste-sello) 10%, transparent);
 }
 
+/* Posición: número y, en el podio, un punto de color (sin emojis) */
 .results-row__pos {
-  width: 46px;
-  height: 64px;
-  text-align: center;
-  font: 600 20px/64px var(--font-mono);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 500 20px/1 var(--font-mono);
   font-variant-numeric: tabular-nums;
 }
 
@@ -205,17 +192,15 @@
   color: var(--color-texto-sec);
 }
 
-/* Podio: la vista moderna muestra el emoji; el número y el punto de color son de la vista formal */
-.results-row__pos--podium .results-row__num,
-.results-row__pos--podium .results-row__dot { display: none; }
+/* Podio: el punto de color reemplaza al emoji de medalla (que queda oculto) */
+.results-row__medal { display: none; }
 
-/* Medalla: emoji 🥇🥈🥉 en la columna de posición (el emoji reemplaza al número) */
-.results-row__medal {
-  display: block;
-  width: 46px;
-  height: 64px;
-  font-size: 34px;
-  line-height: 64px;
-  text-align: center;
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+.results-row__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radio-circulo);
 }
+
+.results-row__dot--oro { background: #B8963E; }
+.results-row__dot--plata { background: #9AA1A9; }
+.results-row__dot--bronce { background: #A47551; }

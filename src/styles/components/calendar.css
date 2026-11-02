@@ -1,11 +1,4 @@
-/* Calendario: foto de fondo, filtros (tabs) y lista de regatas */
-.section--calendar .section__decor--photo {
-  filter: blur(7px);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, .4), rgba(255, 255, 255, .34) 55%, rgba(255, 255, 255, .3)),
-    url('../../assets/noticias/calendario-bg.jpg') center 55% / cover no-repeat;
-}
-
+/* Calendario: filtros (tabs) y lista de regatas */
 .tabs {
   display: flex;
   gap: 4px;
@@ -53,7 +46,7 @@
 }
 
 .calendar-row:hover {
-  background: rgba(255, 255, 255, .45);
+  background: var(--color-superficie-2);
 }
 
 .calendar-row__date {

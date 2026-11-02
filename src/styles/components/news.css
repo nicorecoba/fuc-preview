@@ -1,29 +1,4 @@
-/* Noticias: sección sobre foto desenfocada, con tarjetas de vidrio */
-.section--news {
-  overflow: hidden;
-  background: #3D7BB0;
-  color: #fff;
-}
-
-/* Foto de fondo desenfocada con un velo: azul arriba, blanco translúcido abajo */
-.section__decor--photo {
-  inset: -24px;
-  filter: blur(14px);
-  background:
-    linear-gradient(180deg, rgba(11, 74, 133, .2), rgba(255, 255, 255, .45) 55%, rgba(255, 255, 255, .45)),
-    url('../../assets/noticias/ultimas-noticias-bg.jpg') center / cover no-repeat;
-}
-
-/* Encabezado de sección en blanco sobre la foto */
-.section--news .eyebrow {
-  color: #fff;
-}
-
-.section--news a.link-more,
-.section--news a.link-more:hover {
-  color: #fff;
-}
-
+/* Noticias: tarjetas sólidas sobre el degradé de la sección */
 .news {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
@@ -42,23 +17,22 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: rgba(255, 255, 255, .4);
-  -webkit-backdrop-filter: blur(28px) saturate(1.1);
-  backdrop-filter: blur(28px) saturate(1.1);
-  border: 1px solid rgba(255, 255, 255, .7);
+  background: var(--color-superficie);
+  border: 1px solid var(--color-linea);
   border-radius: 18px;
-  box-shadow: 0 8px 24px rgba(11, 74, 133, .14), inset 0 1px 0 rgba(255, 255, 255, .8);
+  box-shadow: 0 1px 2px rgba(15, 34, 54, .05), 0 8px 20px -14px rgba(15, 34, 54, .18);
   color: var(--color-texto);
   text-decoration: none;
   transition:
-    transform var(--dur-media) var(--ease-estandar),
-    box-shadow var(--dur-media) var(--ease-estandar);
+    transform 200ms cubic-bezier(.2, 0, 0, 1),
+    border-color 200ms cubic-bezier(.2, 0, 0, 1),
+    box-shadow 200ms cubic-bezier(.2, 0, 0, 1);
 }
 
 .news-card:hover {
-  transform: translate(-3px, -6px);
-  background: rgba(255, 255, 255, .52);
-  box-shadow: 0 14px 32px rgba(11, 74, 133, .22), inset 0 1px 0 rgba(255, 255, 255, .9);
+  transform: translate(-2px, -4px);
+  border-color: var(--color-accion);
+  box-shadow: 0 14px 28px -14px rgba(11, 74, 133, .28);
 }
 
 .news-card__photo {

@@ -1,77 +1,35 @@
-/* Secciones: fondo, decoración, contenedor y encabezado de sección */
+/* Secciones: fondo, contenedor y encabezado de sección */
 .section {
-  /* Color donde se funden dos secciones con foto consecutivas */
-  --seam: color-mix(in srgb, var(--color-hero-bg) 70%, #fff);
+  /* Punto medio entre el celeste de portada y el fondo: une el final de una sección con el inicio de la siguiente */
+  --mezcla: color-mix(in srgb, var(--color-hero-bg) 60%, var(--color-fondo));
   position: relative;
   isolation: isolate;
   scroll-margin-top: 72px;
   color: var(--color-texto);
 }
 
-.section--results {
-  overflow: hidden;
-  background: var(--color-fondo);
+/* Cada sección empieza con el color con que termina la anterior, para que no haya cortes */
+.section--news {
+  background-image: linear-gradient(180deg, var(--color-hero-bg), var(--color-fondo) 75%);
 }
 
 .section--calendar {
-  overflow: hidden;
-  background-image: linear-gradient(180deg, var(--color-hero-bg), var(--color-fondo) 55%);
+  background-image: linear-gradient(180deg, var(--color-fondo), var(--mezcla));
+}
+
+.section--results {
+  background-image: linear-gradient(180deg, var(--mezcla), var(--color-fondo));
 }
 
 .section--federation {
-  background-image: linear-gradient(180deg, var(--color-hero-bg), color-mix(in srgb, var(--color-hero-bg) 40%, var(--color-fondo)) 45%, var(--color-fondo) 85%);
+  background-image: linear-gradient(180deg, var(--color-fondo), var(--mezcla));
 }
 
-/* En modo noche las secciones pierden el degradé y las capas decorativas se atenúan */
-html[data-theme="noche"] .section { background-image: none; --seam: var(--color-fondo); }
-html[data-theme="noche"] .section__decor,
-html[data-theme="noche"] .section__fade { opacity: .35; }
-
-.section__decor {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* Foto de fondo desenfocada: el margen negativo evita que el blur deje bordes claros */
-.section__decor--photo {
-  inset: -40px;
-}
-
-/* Puntos (conocé el canotaje) */
-.section__decor--dots {
-  background-image: radial-gradient(circle, color-mix(in srgb, var(--celeste-sello) 40%, transparent) 1px, transparent 1.5px);
-  background-size: 28px 28px;
-  -webkit-mask-image: linear-gradient(180deg, #000, transparent 70%);
-  mask-image: linear-gradient(180deg, #000, transparent 70%);
-}
-
-/* Degradé en el borde inferior para fundir una sección con la siguiente */
+/* Las capas decorativas (fotos, puntos, fundidos) ya no se usan en la vista moderna */
+.section__decor,
 .section__fade {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
+  display: none;
 }
-
-/* Costura entre dos secciones con foto: la de arriba se funde hacia --seam y la de abajo arranca desde él */
-.section__fade--seam {
-  height: clamp(60px, 9vw, 120px);
-  background: linear-gradient(180deg, transparent, var(--seam));
-}
-
-.section__fade--seam-top {
-  top: 0;
-  bottom: auto;
-  height: clamp(60px, 9vw, 120px);
-  background: linear-gradient(180deg, var(--seam), transparent);
-}
-
-/* En modo noche la costura no se atenúa: así sí tapa el corte entre las dos fotos */
-html[data-theme="noche"] .section__fade--seam,
-html[data-theme="noche"] .section__fade--seam-top { opacity: 1; }
 
 .container {
   position: relative;
